@@ -82,7 +82,7 @@ const entities: Entity[] = Array.from({ length: totalEntities }, (_, i) => {
 
 export default function Component() {
   const [hoveredEntity, setHoveredEntity] = useState<number | null>(null);
-  const [draggedEntity, setDraggedEntity] = useState<number | null>(null);
+
   const containerRef = useRef<HTMLDivElement>(null);
 
   const calculateDistance = (id1: number, id2: number) => {
@@ -108,23 +108,6 @@ export default function Component() {
     return 0.8 + 0.2 * (1 - distance / maxDistance); // Other entities
   };
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (draggedEntity !== null && containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        // Update position of dragged entity (not implemented in this example)
-      }
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
-    return () => document.removeEventListener('mousemove', handleMouseMove);
-  }, [draggedEntity]);
-
-  const handleMouseDown = (id: number) => setDraggedEntity(id);
-  const handleMouseUp = () => setDraggedEntity(null);
-
   const getEntityPosition = (entity: Entity) => {
     const x = Math.cos(entity.angle) * entity.radius;
     const y = Math.sin(entity.angle) * entity.radius;
@@ -135,7 +118,6 @@ export default function Component() {
     <div
       ref={containerRef}
       className="relative w-full h-[90%] overflow-hidden pb-100"
-      onMouseUp={handleMouseUp}
       onMouseLeave={() => setHoveredEntity(null)}
     >
       <div className="absolute inset-0 flex items-center justify-center">
@@ -146,8 +128,8 @@ export default function Component() {
               key={entity.id}
               className="absolute rounded-full overflow-hidden cursor-pointer flex items-center justify-center"
               style={{
-                width: 150, // Doubled size from 75 to 150
-                height: 150, // Doubled size from 75 to 150
+                width: 150,
+                height: 150,
                 left: `calc(50% + ${x}px)`,
                 top: `calc(50% + ${y}px)`,
                 transform: 'translate(-50%, -50%)',
@@ -162,10 +144,9 @@ export default function Component() {
                 mass: 0.5,
               }}
               onMouseEnter={() => setHoveredEntity(entity.id)}
-              onMouseDown={() => handleMouseDown(entity.id)}
             >
               <div className="w-full h-full flex items-center justify-center">
-                {React.cloneElement(entity.icon, { size: 50 })} {/* Doubled size from 50 to 100 */}
+                {React.cloneElement(entity.icon, { size: 50 })}
               </div>
             </motion.div>
           );
