@@ -37,7 +37,7 @@ const EducationTimeline: React.FC = () => {
 };
 
 // Styles for hollow nodes and timeline
-const hollowNodeStyle = {
+const hollowNodeStyle: React.CSSProperties = {
   width: '15px',
   height: '15px',
   border: '3px solid white',
@@ -48,18 +48,18 @@ const hollowNodeStyle = {
   top: '5px',
 };
 
-const textStyle = {
+const textStyle: React.CSSProperties = {
   color: 'white',
   lineHeight: '1.5',
 };
 
-const headingStyle = {
+const headingStyle: React.CSSProperties = {
   margin: '0',
   fontSize: '18px',
 };
 
 // New style for percentages and CGPA values
-const valueStyle = {
+const valueStyle: React.CSSProperties = {
   fontSize: '24px', // Increase font size
   fontWeight: 'bold', // Make the text bold
 };
