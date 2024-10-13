@@ -92,7 +92,6 @@ const textOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
       </motion.h2>
       {/* Lid */}
       <Lid
-        src={src}
         scaleX={scaleX}
         scaleY={scaleY}
         rotate={rotate}
@@ -131,13 +130,11 @@ export const Lid = ({
   scaleY,
   rotate,
   translate,
-  src,
 }: {
   scaleX: MotionValue<number>;
   scaleY: MotionValue<number>;
   rotate: MotionValue<number>;
   translate: MotionValue<number>;
-  src?: string;
 }) => {
   return (
     <div className="relative [perspective:800px]">
