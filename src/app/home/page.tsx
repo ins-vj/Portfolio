@@ -1,7 +1,6 @@
 import AchievementsSection from '@/components/achievents';
 import Contact from '@/components/contact';
 import EducationTimeline from '@/components/education';
-import Herosection from '@/components/herosection';
 import { MacbookScroll } from '@/components/mac';
 import Navbar from '@/components/navbar';
 import Responsibilities from '@/components/por';
