@@ -1,4 +1,3 @@
-import { div } from 'framer-motion/client';
 import React from 'react';
 
 interface Project {
@@ -38,7 +37,7 @@ const ProjectCard: React.FC<Project> = ({ name, techStack, Link, info }) => {
 
 const ProjectList: React.FC = () => {
   return (
-    <div className=" min-h-screen">
+    <div className="min-h-screen">
       <div className="text-center text-6xl bg-slate-950 bg-opacity-25 text-white py-8">
         PROJECTS
       </div>
