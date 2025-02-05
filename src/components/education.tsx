@@ -10,7 +10,7 @@ const EducationTimeline: React.FC = () => {
           <div style={hollowNodeStyle}></div>
           <div style={textStyle}>
             <h2 style={headingStyle}>Current CGPA</h2>
-            <p style={valueStyle}>8.35</p>
+            <p style={valueStyle}>8.44</p>
           </div>
         </div>
 
